@@ -9,13 +9,19 @@
 # - Al final de la función, debes retornar el diccionario con los conteos.
 
 def conteo_vocales(text):
-    count = 0
-    for x in text:
-        y = text.lower()
-        count += 1 if y == 'a' or y == 'e' or y == 'i' or y == 'o' or y == 'u' else 0
+    text = text.lower()
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    counts = {}
 
+    for char in text:
+        if char in vowels:
+            if char in counts:
+                counts[char] += 1
+            else:
+                counts[char] = 1
 
-text = 'prueba'
-prueba_codigo = conteo_vocales(text)
-print(prueba_codigo)
+    return counts
 
+text = 'a e i o u'
+resultado = conteo_vocales(text)
+print(resultado)
